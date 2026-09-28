@@ -15,31 +15,31 @@ Delete these instructions as you replace them with your code.
 # ==================================================================== INPUT
 # 1. 
 
-label = input("Label: ")      # : replace with an input() call
-first = float(input("Value 1: "))     # : replace with an input() call, converted
-second = float(input("Value 2: "))    # : replace with an input() call, converted
+dataset_name = input("Dataset Name: ")     
+rows_loaded = int(input("Rows Loaded: ")) 
+rows_expected = int(input("Rows Expected: "))    
 
 
 # ================================================================== PROCESS
 # 2. 
 
-difference = second - first   
-percent = (first / second) * 100  
+difference = rows_expected - rows_loaded   
+percent = (rows_loaded / rows_expected) * 100  
 
 
 # =================================================================== OUTPUT
 # 3. 
 print()
 print("=" * 34)
-print(f"  RECORD CHECK  -  {label}")
+print(f"  DATASET CHECK  -  {dataset_name}")
 print("=" * 34)
 
 # : your report lines go here
 
 print("=" * 34)
-print(f"First Value: {first:>10.2f}")
-print(f"Second Value: {second:>10.2f}")
-print(f"Difference: {difference:>+10.2f}")
+print(f"Rows Loaded: {rows_loaded:>10}")
+print(f"Rows Expected: {rows_expected:>10}")
+print(f"Difference: {difference:>+10}")
 print(f"Percent: {percent:>10.2f}%")
 
 print("=" * 34)
