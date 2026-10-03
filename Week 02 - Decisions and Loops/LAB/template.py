@@ -19,24 +19,27 @@ Delete these instructions as you replace them with your code.
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 
-label = ""      # replace with an input() call
-value = 0.0     # replace with an input() call, converted with float()
-limit = 0.0     # replace with an input() call, converted with float()
-
+label = input("Enter a label: ")      
+value = float(input("Enter a value: "))     
+limit = float(input("Enter a limit: "))     
 
 # ================================================================== PROCESS
 # 2. Work out the difference and the percentage.       [Typical and above]
 
-difference = 0.0   # replace with your calculation
-percent = 0.0       # replace with your calculation
+difference = value - limit   
+percent = (value / limit * 100)   
 # 3. Decide a status and store it in a variable called status.
 #
-#    Threshold : if / else        -> "OVER LIMIT" or "OK"
+#    Threshold : if / else        -> "OVER LIMIT" or "OK"12
 #    Typical   : if / elif / else -> "OVER LIMIT" (100% or more),
 #                                     "WARNING" (90% or more), otherwise "OK"
 
-status = ""   # replace with your if / else (or if / elif / else)
-
+if value >= limit:
+    status = "OVER LIMIT"
+elif value >= limit * 0.9:
+    status = "WARNING"
+else:
+    status = "OK"
 
 # =================================================================== OUTPUT
 # 4. Print the report.
@@ -55,8 +58,14 @@ print("=" * 34)
 
 # your report lines go here
 
-print("=" * 34)
+difference = value - limit
+percent = (value / limit) * 100
 
+print(f" {'Value:' :<12}{value:>17.2f}")
+print(f" {'Limit:' :<12}{limit:>17.2f}")
+print(f" {'Difference:' :<12}{difference:>17.2f}")
+print(f" {'Percentage:' :<12}{percent:>16.2f}%")
+print(f" {'Status:' :<12}{status:>17}")
 
 # ==========================================================================
 # 5. Before you finish:
