@@ -3,7 +3,7 @@ RECORD CHECK  -  my version
 ===========================
 
 Name  :
-Lane  :  AI / Cyber / IT      (delete two)
+Lane  :  AI     
 Date  :
 
 Run it:   python template.py
@@ -27,6 +27,30 @@ Delete these instructions as you replace them with your code.
 #    Give each function a one-line docstring saying what it does.
 
 # your function(s) go here
+def status_of(percent):
+    if percent >= 100:
+        return "OVER LIMIT"
+    elif percent >= 90:
+        return "WARNING"
+    else:
+        return "OK"
+
+def check(value, limit):
+    difference = value - limit
+    percent = (value / limit) * 100
+    return difference, percent
+
+def print_report(label, value, limit, difference, percent, status):
+    print("=" * 34)
+    print(f"RECORD CHECK  -  {label}")
+    print("=" * 34)
+    print(f" {'Value:':<15}{value:>10}")
+    print(f" {'Limit:':<15}{limit:>10}")
+    print(f" {'Difference:':<15}{difference:10.2f}")
+    print(f" {'Percent:':<15}{percent:9.2f}%")
+    print(f" {'Status:':<15}{status:>10}")
+    print("=" * 34)
+
 
 
 # ==================================================================== INPUT
@@ -36,9 +60,9 @@ Delete these instructions as you replace them with your code.
 #    - the second is a NUMBER (use float(), not int())
 #    - the third  is a NUMBER (use float(), not int())
 
-label = ""      # replace with an input() call
-value = 0.0     # replace with an input() call, converted
-limit = 0.0     # replace with an input() call, converted
+label = input("Dataset name: ")      # replace with an input() call
+value = float(input("Rows loaded: "))     # replace with an input() call, converted
+limit = float(input("Rows expected: "))     # replace with an input() call, converted
 
 
 # ================================================================== PROCESS
@@ -48,12 +72,9 @@ limit = 0.0     # replace with an input() call, converted
 #                difference and percentage inline, not in a function.
 #    Typical   : call check() to get the difference and percentage instead.
 
-difference = 0.0   # replace with your code
-percent = 0.0       # replace with your code
-status = ""          # replace with your code
-
-
-# =================================================================== OUTPUT
+difference, percent = check(value, limit)
+status = status_of(percent)
+# ================================================================== OUTPUT
 # 4. Print the report.
 #
 #    Threshold : the three values you were given, plus status, inside a border
@@ -70,6 +91,12 @@ print(f"  RECORD CHECK  -  {label}")
 print("=" * 34)
 
 # your report lines go here
+
+print(f"Value:      {value:>10.2f}")
+print(f"Limit:      {limit:>10.2f}")
+print(f"Difference: {difference:>10.2f}")
+print(f"Percent:    {percent:>9.2f}%")
+print(f"Status:     {status:>10}")
 
 print("=" * 34)
 
