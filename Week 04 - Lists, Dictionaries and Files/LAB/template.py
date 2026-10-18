@@ -3,7 +3,7 @@ RECORD CHECK  -  my version
 ===========================
 
 Name  :
-Lane  :  AI / Cyber / IT      (delete two)
+Lane  :  AI  
 Date  :
 
 Run it:   python template.py
@@ -20,7 +20,14 @@ Delete these instructions as you replace them with your code.
 #    one-line docstring.
 
 # your function(s) go here
+def check_record(value, limit):
+   difference = value - limit
+   percent = (value - limit) * 100 if limit != 0 else 0
+   status = "OVER LIMIT" if value > limit else "OK"
+   return difference, percent, status
 
+def print_report(label, value, limit, difference, percent, status):
+   print(f"{label}: Value={value}, Limit={limit}, Difference={difference}, {percent:.1f}%, Status={status}")
 
 # ====================================================================== STORE
 # 2. Get your records into a list of dicts, each shaped like:
@@ -33,7 +40,23 @@ Delete these instructions as you replace them with your code.
 #    Excellent : also write the results out to a new file (one line per
 #                record: label, status), as well as printing them.
 
-records = []   # replace with your code
+def load_records(path):
+  loaded_list = []
+  with open(path, "r") as file:
+    for line in file:
+      line = line.strip()
+      parts = line.split(",")
+
+      label = parts[0]
+      value = float(parts[1])
+      limit = float(parts[2])
+
+      record = {"label": label, "value": value, "limit": limit}
+      loaded_list.append(record)
+
+  return loaded_list
+records = load_records("data.txt")
+
 
 
 # =============================================================== PROCESS + OUTPUT
@@ -43,8 +66,19 @@ records = []   # replace with your code
 #                print that once, after the loop ends.
 
 # your loop goes here
+over_limit_count = 0
+output_file = open("results.txt", "w")
+for record in records:
+  label = record["label"]
+  value = record["value"]
+  limit = record["limit"]
+diff, pct, status = check_record(value, limit)
+output_file.write(label + "," + status + "\n")
 
-
+if status == "OVER LIMIT":
+  over_limit_count = over_limit_count + 1
+output_file.close()
+print("Total records OVER LIMIT:", over_limit_count)
 # ==========================================================================
 # 4. Before you finish:
 #
