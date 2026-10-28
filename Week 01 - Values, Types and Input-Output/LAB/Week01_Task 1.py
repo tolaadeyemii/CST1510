@@ -1,0 +1,5 @@
+name = input("Enter your name")
+interest = input("Enter your interest?")
+nationality = input("Enter your nationality?")
+course = input("Enter your course")
+programming_experience = input("Enter your programming experience")
