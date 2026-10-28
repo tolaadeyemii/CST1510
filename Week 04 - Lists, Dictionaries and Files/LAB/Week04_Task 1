@@ -2,4 +2,11 @@ numbers = []
 while True:
     try:
         val = int(input("Enter an integer( 0 to stop):"))
-        
+        if val == 0:
+            break
+        numbers.append(val)
+    except ValueError:
+        print("Please enter a valid integer")
+    print("\nNumbers in reverse order:")
+    for num in reversed(numbers):
+        print(num)

@@ -1,0 +1,120 @@
+import random
+
+def do_addition(num1, num2):
+    correct_ans = num1 + num2
+    print(f"What is {num1} + {num2}?")
+    user_ans = int(input("Your answer: "))
+    if user_ans == correct_ans:
+        print("Correct!")
+        return 1
+    else:
+        print(f"Wrong. The correct answer was {correct_ans}")
+        return 0
+
+def do_subtraction(num1, num2):
+    correct_ans = num1 - num2
+    print(f"What is {num1} - {num2}?")
+    user_ans = int(input("Your answer: "))
+    if user_ans == correct_ans:
+        print("Correct!")
+        return 1
+    else:
+        print(f"Wrong. The correct answer was {correct_ans}")
+        return 0
+
+def do_multiplication(num1, num2):
+    correct_ans = num1 * num2
+    print(f"What is {num1} * {num2}?")
+    user_ans = int(input("Your answer: "))
+    if user_ans == correct_ans:
+        print("Correct!")
+        return 1
+    else:
+        print(f"Wrong. The correct answer was {correct_ans}")
+        return 0
+
+def do_division(num1, num2):
+    # Error handling for division by zero
+    if num2 == 0:
+        print("Error: Cannot divide by zero. Skipping this question.")
+        return 0
+    
+    correct_ans = round(num1 / num2, 2)
+    print(f"What is {num1} / {num2}? (Round to 2 decimal places if needed)")
+    user_ans = float(input("Your answer: "))
+    if user_ans == correct_ans:
+        print("Correct!")
+        return 1
+    else:
+        print(f"Wrong. The correct answer was {correct_ans}")
+        return 0
+
+def do_exponent(num1, num2):
+    correct_ans = num1 ** num2
+    print(f"What is {num1} to the power of {num2}?")
+    user_ans = int(input("Your answer: "))
+    if user_ans == correct_ans:
+        print("Correct!")
+        return 1
+    else:
+        print(f"Wrong. The correct answer was {correct_ans}")
+        return 0
+
+def do_remainder(num1, num2):
+    
+    if num2 == 0:
+        print("Error: Cannot find remainder when dividing by zero. Skipping.")
+        return 0
+        
+    correct_ans = num1 % num2
+    print(f"What is the remainder of {num1} % {num2}?")
+    user_ans = int(input("Your answer: "))
+    if user_ans == correct_ans:
+        print("Correct!")
+        return 1
+    else:
+        print(f"Wrong. The correct answer was {correct_ans}")
+        return 0
+
+score = 0
+total_questions = 0
+
+while True:
+    print("\n--- Math Practice Menu ---")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Exponent")
+    print("6. Remainder")
+    print("7. Quit")
+    
+    choice = input("Choose an option (1-7): ")
+    
+    if choice == '7':
+        print("\nThanks for playing!")
+        if total_questions > 0:
+            print(f"Your final score: {score}/{total_questions}")
+        break
+        
+    if choice in ['1', '2', '3', '4', '5', '6']:
+        n1 = random.randint(0, 9)
+        n2 = random.randint(0, 9)
+        total_questions += 1
+        
+        if choice == '1':
+            score += do_addition(n1, n2)
+        elif choice == '2':
+            score += do_subtraction(n1, n2)
+        elif choice == '3':
+            score += do_multiplication(n1, n2)
+        elif choice == '4':
+            score += do_division(n1, n2)
+        elif choice == '5':
+            score += do_exponent(n1, n2)
+        elif choice == '6':
+            score += do_remainder(n1, n2)
+            
+        print(f"Current Score: {score}/{total_questions}")
+    else:
+        print("Invalid choice, please select a number from 1 to 7.")

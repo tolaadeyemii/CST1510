@@ -1,0 +1,11 @@
+import random
+throws = [random.randint(1, 6) for _ in range(7)]
+print(f"Original throws: {throws}")
+random.shuffle(throws)
+print(f"Shuffled list: {throws}")
+throws.sort(reverse = True)
+print(f"Sorted (desc): {throws}")
+print("\n0ccurences:")
+for value in sorted(set(throws)):
+    count = throws.count(value)
+    print(f"Number {value}: appeared {count} time(s)")

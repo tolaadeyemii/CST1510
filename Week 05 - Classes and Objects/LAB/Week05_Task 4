@@ -1,0 +1,22 @@
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Deposited ${amount}. New balance: ${self.balance}")
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print(f"Transaction Denited: Insufficient funds to withdraw ${amount}. Current balance: ${self.balance}")
+        else:
+            self.balance -= amount
+            print(f"Withdrew ${amount}. New balance: ${self.balance}")
+    def show_balance(self):
+        print(f"Account Owner: {self.owner}  Current Balance: ${self.balance}")
+
+account = BankAccount("Tola", 100)
+account.show_balance()
+account.deposit(50)
+account.withdraw(30)
+account.withdraw(200) #this is the one that fails
+account.show_balance()

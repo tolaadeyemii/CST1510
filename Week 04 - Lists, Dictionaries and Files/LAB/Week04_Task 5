@@ -1,0 +1,23 @@
+def countRange(my_list, min_value, max_value):
+    count = 0
+    for num in my_list:
+        if num >= min_value and num < max_value:
+            count = count + 1
+    return count
+
+nums1 = [10, 15, 20, 25, 30, 35]
+low1 = 15
+high1 = 30
+result1 = countRange(nums1, low1, high1)
+
+print("Integer test list:", nums1)
+print("Count between", low1, "and", high1, "is:", result1)
+print()
+
+nums2 = [1.5, 2.3, 4.7, 5.5, 3.2, 0.9]
+low2 = 2.0
+high2 = 5.0
+result2 = countRange(nums2, low2, high2)
+
+print("Float test list:", nums2)
+print("Count between", low2, "and", high2, "is:", result2)

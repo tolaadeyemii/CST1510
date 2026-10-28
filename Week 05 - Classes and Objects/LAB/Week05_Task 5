@@ -1,0 +1,17 @@
+class Student:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+  def __str__(self):
+    return f"{self.name} (age {self.age})"
+
+students = [
+    Student("Alice", 19),
+    Student("Bob", 21),
+    Student("Charlie", 20),
+    Student("Diana", 22),
+    Student("Evan", 18)
+  ]
+
+for student in students:
+  print(student)

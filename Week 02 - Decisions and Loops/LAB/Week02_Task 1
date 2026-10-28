@@ -1,0 +1,9 @@
+password = input("Enter a password:")
+password_length = len(password)
+
+if password_length < 8:
+    print("Weak")
+elif password_length < 12:
+    print("Moderate")
+else:
+    print("Strong")

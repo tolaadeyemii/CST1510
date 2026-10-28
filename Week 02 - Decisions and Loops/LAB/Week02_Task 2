@@ -1,0 +1,9 @@
+import random
+number1 = random.randint(0,9)
+number2 = random.randint(0,9)
+
+user_answer = int(input(f"What is {number1} * {number2}"))
+correct_answer = number1 * number2
+is_correct = (user_answer == correct_answer)
+
+print(is_correct)

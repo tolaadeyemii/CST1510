@@ -1,0 +1,33 @@
+class Account:
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+        self.failed_attempts = 0
+
+    def login(self, password):
+        # Check if the account is already locked first
+        if self.failed_attempts >= 3:
+            print("Login refused. Account is locked.")
+            return False
+            
+        if password == self.password:
+            self.failed_attempts = 0
+            print("Login successful!")
+            return True
+        else:
+            self.failed_attempts += 1
+            if self.failed_attempts >= 3:
+                print("Account has been locked due to too many failed attempts.")
+            else:
+                print("Incorrect password.")
+            return False
+
+my_account = Account("student_user", "mypassword123")
+
+print("--- Testing incorrect logins ---")
+my_account.login("wrong_pass1")
+my_account.login("wrong_pass2")
+my_account.login("wrong_pass3")  # This should lock it
+
+print("\n--- Testing login after it gets locked ---")
+my_account.login("mypassword123")  # Should be refused
