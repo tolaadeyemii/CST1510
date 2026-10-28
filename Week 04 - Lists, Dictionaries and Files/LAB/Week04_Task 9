@@ -1,0 +1,23 @@
+marks = [75, 42, 88, 50, 49, 91, 63]
+
+total = sum(marks)
+count = len(marks)
+average = total / count
+
+highest = max(marks)
+lowest = min(marks)
+
+passed = 0
+failed = 0
+
+for mark in marks:
+    if mark >= 50:
+        passed = passed + 1
+    else:
+        failed = failed + 1
+
+print("Average mark:", round(average, 2))
+print("Highest mark:", highest)
+print("Lowest mark:", lowest)
+print("Number of students who passed:", passed)
+print("Number of students who failed:", failed)

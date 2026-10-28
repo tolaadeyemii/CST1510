@@ -1,0 +1,24 @@
+def calculate_mean(numbers):
+    total = sum(numbers)
+    count = len(numbers)
+    return total / count
+
+def calculate_median(numbers):
+   
+    sorted_numbers = sorted(numbers)
+    count = len(sorted_numbers)
+    
+
+    middle_index = count // 2
+    
+    if count % 2 != 0:
+        return sorted_numbers[middle_index]
+
+    else:
+        val1 = sorted_numbers[middle_index - 1]
+        val2 = sorted_numbers[middle_index]
+        return (val1 + val2) / 2
+
+test_scores = [70, 80, 90, 85, 400] 
+print(f"\nMean: {calculate_mean(test_scores)}")     
+print(f"Median: {calculate_median(test_scores)}")  
