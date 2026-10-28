@@ -1,0 +1,113 @@
+def convert_length():
+    print("1. Meters to Feet")
+    print("2. Inches to Centimeters")
+    print("3. Miles to Kilometers")
+    choice = input("Pick one: ")
+    
+    num = float(input("Enter number: "))
+    
+    if choice == "1":
+        ans = num * 3.28
+        print("Result:", ans)
+    elif choice == "2":
+        ans = num * 2.54
+        print("Result:", ans)
+    elif choice == "3":
+        ans = num * 1.6
+        print("Result:", ans)
+
+def convert_temp():
+    print("1. C to F")
+    print("2. F to C")
+    choice = input("Pick one: ")
+    
+    num = float(input("Enter number: "))
+    
+    if choice == "1":
+        ans = (num * 9/5) + 32
+        print("Result:", ans)
+    elif choice == "2":
+        ans = (num - 32) * 5/9
+        print("Result:", ans)
+
+def convert_mass():
+    print("1. kg to lbs")
+    print("2. lbs to kg")
+    choice = input("Pick one: ")
+    
+    num = float(input("Enter number: "))
+    
+    if choice == "1":
+        ans = num * 2.2
+        print("Result:", ans)
+    elif choice == "2":
+        ans = num / 2.2
+        print("Result:", ans)
+
+def convert_vol():
+    print("1. L to gal")
+    print("2. gal to L")
+    choice = input("Pick one: ")
+    
+    num = float(input("Enter number: "))
+    
+    if choice == "1":
+        ans = num * 0.26
+        print("Result:", ans)
+    elif choice == "2":
+        ans = num / 0.26
+        print("Result:", ans)
+
+def convert_press():
+    print("1. atm to Pa")
+    print("2. PSI to Bar")
+    choice = input("Pick one: ")
+    
+    num = float(input("Enter number: "))
+    
+    if choice == "1":
+        ans = num * 101325
+        print("Result:", ans)
+    elif choice == "2":
+        ans = num * 0.068
+        print("Result:", ans)
+
+def convert_energy():
+    print("1. J to cal")
+    print("2. cal to J")
+    choice = input("Pick one: ")
+    
+    num = float(input("Enter number: "))
+    
+    if choice == "1":
+        ans = num * 0.24
+        print("Result:", ans)
+    elif choice == "2":
+        ans = num / 0.24
+        print("Result:", ans)
+
+
+print("--- Calculator Menu ---")
+print("1. Length")
+print("2. Temperature")
+print("3. Mass")
+print("4. Volume")
+print("5. Pressure")
+print("6. Energy")
+
+user_pick = input("Select a category: ")
+
+if user_pick == "1":
+    convert_length()
+elif user_pick == "2":
+    convert_temp()
+elif user_pick == "3":
+    convert_mass()
+elif user_pick == "4":
+    convert_vol()
+elif user_pick == "5":
+    convert_press()
+elif user_pick == "6":
+    convert_energy()
+else:
+    print("Invalid option")
