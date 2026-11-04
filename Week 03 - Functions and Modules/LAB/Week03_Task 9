@@ -1,0 +1,6 @@
+import platform
+hostname = input("Enter hostname: ")
+
+print(f"Host: {hostname}")
+print(f"OS: {platform.system()}")
+print(f"Python: {platform.python_version()}")

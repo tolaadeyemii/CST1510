@@ -1,0 +1,29 @@
+inches_to_cm = lambda x: x * 2.54
+cm_to_inches = lambda x: x / 2.54
+
+miles_to_km = lambda x: x * 1.609
+km_to_miles = lambda x: x / 1.609
+
+# Ask the user for inputs
+print("1: Inches to CM")
+print("2: CM to Inches")
+print("3: Miles to KM")
+print("4: KM to Miles")
+
+choice = input("Choose a conversion (1-4): ")
+value = float(input("Enter the value to convert: "))
+
+if choice == "1":
+    result = inches_to_cm(value)
+    print("Result:", result)
+elif choice == "2":
+    result = cm_to_inches(value)
+    print("Result:", result)
+elif choice == "3":
+    result = miles_to_km(value)
+    print("Result:", result)
+elif choice == "4":
+    result = km_to_miles(value)
+    print("Result:", result)
+else:
+    print("Invalid choice")

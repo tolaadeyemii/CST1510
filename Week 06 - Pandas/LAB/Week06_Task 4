@@ -1,0 +1,11 @@
+london_students = df[df['City'] == 'London']
+print("-- Students in London --")
+print(london_students)
+print(f"Students in London: {len(london_students)}")
+
+low_grades = df[df['Grade'] < 65]
+print("\n-- Students with Grade below 65 --")
+print(low_grades[['Name', 'Grade']])
+
+print("\n-- Student counts by city --")
+print(df['City'].value_counts())

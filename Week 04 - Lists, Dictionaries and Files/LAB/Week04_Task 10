@@ -1,0 +1,28 @@
+numbers = []
+
+while True:
+    user_input = input("Enter a positive number (or 'done' to stop): ")
+    
+    if user_input == "done":
+        break
+        
+    num = int(user_input)
+    numbers.append(num)
+
+if len(numbers) > 0:
+   
+    print("All entered numbers:", numbers)
+    
+    found_even = False
+    
+    for num in numbers:
+        if num % 2 == 0:
+            print("First even number found:", num)
+            found_even = True
+            break 
+            
+    if found_even == False:
+        print("No even numbers found")
+
+else:
+    print("No numbers were entered")

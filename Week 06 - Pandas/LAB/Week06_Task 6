@@ -1,0 +1,15 @@
+cond_course = df['Course'].isin(['Computer Science', 'Data Science'])
+cond_grade = df['Grade'] > 75
+cond_attendance = df['Attendance'] > 80
+
+filtered_students = df[cond_course & cond_grade & cond_attendance]
+print("--- Top CS/DS Students ---")
+print(filtered_students[['Name', 'Course', 'Grade', 'Attendance']])
+
+failing_students = df[df['Grade'] < 60]
+print(f"\n--- Students at Risk of Failing (Total: {len(failing_students)}) ---")
+print(failing_students[['Name', 'Grade']])
+
+manchester_scholarship = df[(df['City'] == 'Manchester') & (df['Grade'] > 80) & (df['Scholarship'] == True)]
+print("\n--- Manchester Scholarship Students ---")
+print(manchester_scholarship[['Name', 'Grade', 'Scholarship']])

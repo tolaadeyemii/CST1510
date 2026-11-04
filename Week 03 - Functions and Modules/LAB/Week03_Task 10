@@ -1,0 +1,4 @@
+from math import tan, pi
+s = float(input("Enter side length s: "))
+area = (5 * s**2) / (4 * tan(pi / 5))
+print(f"Area = {area:.2f}")

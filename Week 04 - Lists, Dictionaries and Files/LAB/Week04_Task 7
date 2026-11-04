@@ -1,0 +1,41 @@
+student_data = [
+    [101, 'Alice', 85, 92, 88],
+    [102, 'Bob', 78, 61, 75],
+    [103, 'Charlie', 90, 85, 89],
+    [104, 'David', 65, 70, 72],
+    [105, 'Eve', 88, 95, 90]
+]
+
+for student in student_data:
+    math = student[2]
+    science = student[3]
+    english = student[4]
+    
+    total = math + science + english
+    average = total / 3
+    
+    student.append(round(average, 2))
+
+print("1. Updated student data:")
+for student in student_data:
+    print(student)
+
+
+highest_avg = student_data[0][5]
+lowest_avg = student_data[0][5]
+
+for student in student_data:
+    current_avg = student[5]
+    if current_avg > highest_avg:
+        highest_avg = current_avg
+    if current_avg < lowest_avg:
+        lowest_avg = current_avg
+
+print(f"\n2. Highest Average: {highest_avg}")
+print(f"   Lowest Average: {lowest_avg}")
+
+print("\n3. Students with > 75 in all subjects:")
+for student in student_data:
+   
+    if student[2] > 75 and student[3] > 75 and student[4] > 75:
+        print(f"   - {student[1]} (ID: {student[0]})")

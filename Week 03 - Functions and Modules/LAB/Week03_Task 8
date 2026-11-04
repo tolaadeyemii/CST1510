@@ -1,0 +1,18 @@
+import statistics as stats
+
+user_input = input("Enter five numeric values (separated by spaces): ")
+split_input = user_input.split()
+
+numbers = []
+for item in split_input:
+    numbers.append(float(item))
+total_val = sum(numbers)
+mean_val = stats.mean(numbers)
+median_val = stats.median(numbers)
+std_dev_val = stats.stdev(numbers)
+
+print(f"Values: {user_input}")
+print(f"Total = {total_val:.2f}")
+print(f"Mean = {mean_val:.2f}")
+print(f"Median = {median_val:.2f}")
+print(f"Std Dev = {std_dev_val:.2f}")

@@ -1,0 +1,8 @@
+print("Data Types")
+print(df.dtypes)
+print("n-- Summary Statistics --")
+print(df.describe())
+print("\n-- Summary Answers --")
+print(f"What is the average grade? {df['grade'].mean()}")
+print(f"What is the maximum attendance? {df['Attendance'].max()}")
+print(f"What is the youngest students age? {df['age'].min()}")

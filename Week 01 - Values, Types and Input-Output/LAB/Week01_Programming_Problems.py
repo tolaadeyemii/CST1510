@@ -47,6 +47,7 @@ Perimeter = 24.80
 
 ## Quick Check (no code submission)
 #- What data type does `input()` return? Use `type(input("x"))` to verify.
+#It always returns a string data type
 #- Show one example of an escape sequence in `print()`.
 #- What is the difference between `/` and `//`? Provide a one-line example for each.
 

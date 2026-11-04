@@ -1,0 +1,8 @@
+from datetime import datetime
+
+username = input("Enter username: ")
+action = input("Enter action (LOGIN/LOGOUT): ")
+current_time = datetime.now()
+timestamp = current_time.strftime("%Y-%m-%d %H:%M:%S")
+
+print(f"[{timestamp}] {action} user={username}")
