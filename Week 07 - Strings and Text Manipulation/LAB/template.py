@@ -3,7 +3,7 @@ RECORD CHECK  -  my version
 ===========================
 
 Name  :
-Lane  :  AI / Cyber / IT      (delete two)
+Lane  :  AI 
 Date  :
 
 Run it:   python template.py
@@ -22,7 +22,39 @@ Delete these instructions as you replace them with your code.
 #    one-line docstring.
 
 # your function(s) go here
+def parse_line(raw_line):
 
+    raw_line = raw_line.strip()
+    parts = raw_line.split(",")
+    survey = parts[0].strip()
+    record = {"survey": survey}
+
+    for part in parts[1:]:
+        key, value = part.split("=")
+
+        key = key.strip().lower()
+        value = value.strip()
+
+        if key == "rating" or key == "age":
+            value = int(value)
+
+        record[key] = value
+
+    return record
+
+def status_of(record):
+
+    rating = record["rating"]
+    age = record["age"]
+
+    if rating < 1 or rating > 5:
+        return "FLAGGED"
+
+    elif age < 0 or age > 120:
+        return "FLAGGED"
+
+    else:
+        return "OK"
 
 # ====================================================================== INPUT
 # 2. Your raw, messy records - at least 5, deliberately varied in spacing
@@ -35,8 +67,16 @@ Delete these instructions as you replace them with your code.
 #    Excellent: save these lines to a file and load them with open() /
 #    a for loop over the file, instead of writing them directly here.
 
-raw_records = []   # replace with your code
-
+raw_records = [
+    " Survey_2026 , rating=4 , age=23 ",
+    "SURVEY_2025, RATING=5, AGE=31",
+    " Survey_2024 , rating=3 , age=19 ",
+    "survey_2023, rating=7, age=25",
+    " Survey_2022 , rating=2 , age=145 "
+]
+with open("messy_lines.txt", "w") as file:
+    for record in raw_records:
+        file.write(record + "\n")
 
 # =============================================================== PROCESS + OUTPUT
 # 3. Parse and report on every record.
@@ -46,9 +86,22 @@ raw_records = []   # replace with your code
 #    Excellent : print a one-line summary at the end - how many records,
 #                how many flagged.
 
-for raw_record in raw_records:
-    pass   # replace with your code
+flagged_count = 0
+total_records = 0
 
+with open("messy_lines.txt", "r") as file:
+
+    for raw_record in file:
+
+        clean_record = parse_line(raw_record)
+        status = status_of(clean_record)
+        print("Cleaned record:", clean_record)
+        print("Status:", status)
+        print("--------------------------")
+
+        total_records += 1
+        if status == "FLAGGED":
+            flagged_count += 1
 
 # ==========================================================================
 # 4. Before you finish:
