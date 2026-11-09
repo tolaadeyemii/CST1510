@@ -1,0 +1,41 @@
+def check_password(password):
+   
+    if " " in password:
+        print("Password rejected: Cannot contain spaces.")
+        return
+
+    score = 0
+
+    if len(password) >= 8:
+        score += 1
+
+    if any(char.isupper() for char in password):
+        score += 1
+
+    if any(char.islower() for char in password):
+        score += 1
+
+    if any(char.isdigit() for char in password):
+        score += 1
+
+    special_chars = "@#$!"
+    if any(char in special_chars for char in password):
+        score += 1
+
+    if score <= 2:
+        label = "Weak"
+    elif score <= 4:
+        label = "Medium"
+    else:
+        label = "Strong"
+
+    # Print the score and label
+    print(f"Score: {score}/5 - Label: {label}")
+    return score
+
+test_passwords = ["hello", "Hello123", "My Pass!"]
+
+for pwd in test_passwords:
+    print(f"Testing: '{pwd}'")
+    check_password(pwd)
+    print("-" * 30)

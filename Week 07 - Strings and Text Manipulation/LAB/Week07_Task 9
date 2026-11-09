@@ -1,0 +1,38 @@
+import string
+
+def word_frequency(text):
+    # 1. Convert text to lowercase
+    text_lower = text.lower()
+    
+    # 2. Remove punctuation ('.', ',', '!', '?')
+    # Using the suggested replace() method or general replacement
+    punctuation_to_remove = ['.', ',', '!', '?']
+    for char in punctuation_to_remove:
+        text_lower = text_lower.replace(char, "")
+        
+    # 3. Splits into words
+    words = text_lower.split()
+    
+    # 4. Returns a dictionary of word -> count
+    freq_dict = {}
+    for word in words:
+        # count() is used to count occurrences of the word in the split list
+        freq_dict[word] = words.count(word)
+        
+    # 5. Prints the top 5 most common words
+    # Sort the dictionary items by count in descending order
+    sorted_words = sorted(freq_dict.items(), key=lambda item: item[1], reverse=True)
+    
+    print("Top 5 most common words:")
+    for word, count in sorted_words[:5]:
+        print(f"'{word}': {count}")
+        
+    return freq_dict
+
+# Test string provided in the prompt
+test_text = """Data science is the study of data. Data scientists use data to find patterns.
+Machine learning is a part of data science. Scientists study data every day!
+The science of data is growing, and data is everywhere."""
+
+# Running the function
+word_counts = word_frequency(test_text)

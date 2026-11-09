@@ -1,0 +1,45 @@
+def analyse_sentiment(reviews):
+
+    positive_words = ['amazing', 'love', 'fantastic', 'great', 'excellent']
+    negative_words = ['terrible', 'worst', 'poor', 'awful', 'horrible']
+
+    positive_count = 0
+    negative_count = 0
+    neutral_count = 0
+
+    negative_reviews = []
+
+    for review in reviews:
+        clean_review = review.strip().lower()
+
+        if any(word in clean_review for word in positive_words):
+            positive_count += 1
+
+        elif any(word in clean_review for word in negative_words):
+            negative_count += 1
+            negative_reviews.append(review)
+
+        else:
+            neutral_count += 1
+
+    return {
+        "positive": positive_count,
+        "negative": negative_count,
+        "neutral": neutral_count,
+        "negative_reviews": negative_reviews
+    }
+
+
+reviews = [
+    " AMAZING product, Love it!!! ",
+    "terrible experience",
+    "It was okay",
+    "WORST purchase ever",
+    "fantastic quality ",
+    "poor customer service",
+    "Not bad, not great"
+]
+
+result = analyse_sentiment(reviews)
+
+print(result)
