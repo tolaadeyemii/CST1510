@@ -1,0 +1,13 @@
+raw_names = [
+    " JOHN smith ",
+    "mary JOHNSON",
+    "  bob WILSON "
+]
+for name in raw_names:
+    clean_name = name.strip().title()
+    parts = clean_name.split()
+    first_name = parts[0].lower()
+    surname = parts[1].lower()
+    email = first_name + "." + surname + "@company.com"
+
+    print(clean_name, "->", email)

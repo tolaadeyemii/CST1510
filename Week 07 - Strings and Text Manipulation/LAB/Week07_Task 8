@@ -1,0 +1,48 @@
+def validate_record(record):
+
+    errors = []
+
+    fields = record.split(",")
+
+    if len(fields) != 4:
+        return ["Record must have exactly 4 fields"]
+
+    name = fields[0].strip()
+    age = fields[1].strip()
+    email = fields[2].strip()
+    phone = fields[3].strip()
+
+    if not all(fields):
+        errors.append("Fields cannot be empty")
+
+    if not name.replace(" ", "").isalpha():
+        errors.append("Name must contain only letters and spaces")
+
+    if not age.isdigit():
+        errors.append("Age must be a number")
+    elif int(age) < 18 or int(age) > 100:
+        errors.append("Age must be between 18 and 100")
+
+    if "@" not in email or "." not in email:
+        errors.append("Email must contain @ and .")
+
+    if not phone.startswith("+") and not phone.startswith("0"):
+        errors.append("Phone must start with + or 0")
+
+    return errors
+
+
+records = [
+    "Alice Smith,25,alice@email.com,+447123456789",
+    "Bob,abc,bob@email,07123456789",
+    "Charlie123,30,charlie@gmail.com,447123456789",
+    ",22,missing@gmail.com,+440000000000"
+]
+
+for record in records:
+    errors = validate_record(record)
+
+    if len(errors) == 0:
+        print("Valid record")
+    else:
+        print("Invalid record:", errors)

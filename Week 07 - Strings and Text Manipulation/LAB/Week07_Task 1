@@ -1,0 +1,10 @@
+responses = [
+    "  VERY SATISFIED  ",
+    "Somewhat Happy  ",
+    "  NOT HAPPY  ",
+    " NEUTRAL ",
+    "  dissatisfied "
+]
+for response in responses:
+    cleaned = response.strip().lower()
+    print(cleaned)

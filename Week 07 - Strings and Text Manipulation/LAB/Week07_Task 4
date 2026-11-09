@@ -1,0 +1,12 @@
+feedback = [
+    "The product quality is great",
+    "Fast delivery but poor quality",
+    "Great product and great delivery",
+    "Quality could be better"
+]
+keywords = ['great', 'quality', 'delivery']
+all_feedback = " ".join(feedback).lower()
+
+for word in keywords:
+    count = all_feedback.count(word)
+    print(word, ":", count)
