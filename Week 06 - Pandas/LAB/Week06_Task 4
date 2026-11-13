@@ -1,10 +1,10 @@
+import pandas as pd
+df = pd.read_csv('01 - Series and DataFrame/examples/servers.csv')
+
 london_students = df[df['City'] == 'London']
 print("-- Students in London --")
 print(london_students)
 print(f"Students in London: {len(london_students)}")
-
-class df:
-    ...
 
 low_grades = df[df['Grade'] < 65]
 print("\n-- Students with Grade below 65 --")

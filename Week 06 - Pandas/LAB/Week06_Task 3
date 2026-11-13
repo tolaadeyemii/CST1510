@@ -1,3 +1,6 @@
+import pandas as pd
+df = pd.read_csv('01 - Series and DataFrame/examples/servers.csv')
+
 grades_df = df[['Name', 'Course', 'Grade']]
 print(grades_df.head(5))
 print("\-- Rows 5 to 9 (.iloc) --")

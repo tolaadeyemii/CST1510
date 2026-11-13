@@ -1,3 +1,6 @@
+import pandas as pd
+df = pd.read_csv('01 - Series and DataFrame/examples/servers.csv')
+
 df['Result'] = df['Grade'].apply(lambda g: 'Pass' if g >= 60 else 'Fail')
 
 df['Combined_Score'] = (df['Grade'] * 0.7 + df['Attendance'] * 0.3).round(1)

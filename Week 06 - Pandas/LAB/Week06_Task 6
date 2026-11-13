@@ -1,3 +1,6 @@
+import pandas as pd
+df = pd.read_csv('01 - Series and DataFrame/examples/servers.csv')
+
 cond_course = df['Course'].isin(['Computer Science', 'Data Science'])
 cond_grade = df['Grade'] > 75
 cond_attendance = df['Attendance'] > 80

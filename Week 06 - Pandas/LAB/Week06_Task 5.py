@@ -1,3 +1,6 @@
+import pandas as pd
+df = pd.read_csv('01 - Series and DataFrame/examples/servers.csv')
+
 print("Top 5 students by grade")
 top_grades = df.sort_values(by="grade", ascending=False)
 print(top_grades.head(5))

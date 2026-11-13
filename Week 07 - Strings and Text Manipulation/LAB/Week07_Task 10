@@ -29,7 +29,6 @@ def check_password(password):
     else:
         label = "Strong"
 
-    # Print the score and label
     print(f"Score: {score}/5 - Label: {label}")
     return score
 

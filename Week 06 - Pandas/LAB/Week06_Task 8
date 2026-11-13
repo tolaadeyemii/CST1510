@@ -1,11 +1,15 @@
+import pandas as pd
+df = pd.read_csv('01 - Series and DataFrame/examples/servers.csv')
+
+import pandas as pd
 course_stats = df.groupby('Course').agg(
-    Count=('Name', 'count'),
-    Avg_Grade=('Grade', lambda x: x.mean().round(1)),
+    Count=('Student_ID', 'count'), 
+    Avg_Grade=('Grade', 'mean'),
     Max_Grade=('Grade', 'max'),
-    Avg_Attendance=('Attendance', lambda x: x.mean().round(1))
-).sort_values(by='Avg_Grade', ascending=False)
+    Avg_Attendance=('Attendance', 'mean')
+)
+course_stats['Avg_Grade'] = course_stats['Avg_Grade'].round(1)
+course_stats['Avg_Attendance'] = course_stats['Avg_Attendance'].round(1)
+course_stats = course_stats.sort_values(by='Avg_Grade', ascending=False)
 
-print("--- Course Statistics ---")
 print(course_stats)
-
-#GO OVER THIS TOLA
